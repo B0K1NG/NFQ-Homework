@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edit Article</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.text) }}
+        {% if form.image.vars.value %}
+            <div class="form-group">
+                <label>Current Image:</label>
+                <img src="{{ asset('uploads/images/' ~ form.image.vars.value) }}" class="img-fluid">
+            </div>
+        {% endif %}
+        {{ form_row(form.image) }}
+        <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+{% endblock %}
